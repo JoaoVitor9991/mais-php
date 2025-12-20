@@ -2,9 +2,9 @@
 
 class Bilheteria 
 {
-    private $preco = 20.00;
-    private $ingressos;
-    private $caixa;
+    protected $preco = 20.00;
+    protected  $ingressos;
+    protected  $caixa;
 
     public function __construct()
     {
@@ -18,6 +18,7 @@ class Bilheteria
 
         echo "Você pagou R$: " . $this->caixa . ". ";
     }
+    
 
     public function imprimir_bilhete()
     {
@@ -25,9 +26,9 @@ class Bilheteria
 
          if($this->caixa >= $this->preco){
             $this->ingressos -= 1;
-            $this->caixa = 0;
+            $this->caixa -= $this->preco;
 
-            echo "Bom filme! 🍿";
+            echo $this->frase_sucesso();
         } else {
             echo "Falta de grana, POBRE, TA DURO DEITA.";
         } 
@@ -35,4 +36,8 @@ class Bilheteria
         echo "Esgotado";
     }
     } 
+
+    protected function frase_sucesso() {
+        return "Bom filme! 🍿";
+    }
 }
