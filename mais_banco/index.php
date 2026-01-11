@@ -10,3 +10,6 @@ $nova_conta->sacar(120);
 echo "<br>";
 echo "<br>";
 $nova_conta->sacar(88);
+echo "<br>";
+echo "<br>";
+echo $nova_conta->ver_saldo();
