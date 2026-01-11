@@ -5,11 +5,15 @@ class Bilheteria
     protected $preco = 20.00;
     protected  $ingressos;
     protected  $caixa;
+    protected $filme;
 
-    public function __construct()
+
+    public function __construct(Filme $filme_chegou)
     {
         $this->ingressos = 10;
         $this->caixa = 0;
+        
+        $this->filme = $filme_chegou;
     }
 
     public function receber_dinheiro($valor)
@@ -27,17 +31,20 @@ class Bilheteria
          if($this->caixa >= $this->preco){
             $this->ingressos -= 1;
             $this->caixa -= $this->preco;
-
+            
             echo $this->frase_sucesso();
         } else {
             echo "Falta de grana, POBRE, TA DURO DEITA.";
         } 
         } else {
         echo "Esgotado";
+    
     }
+
+    
     } 
 
     protected function frase_sucesso() {
-        return "Bom filme! 🍿";
+        return "Bom filme!  você vai assistir o filme: " . $this->filme->getFilme() . "🍿";
     }
 }
