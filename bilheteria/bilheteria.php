@@ -1,7 +1,8 @@
 <?php
 
 class Bilheteria 
-{
+{   
+    private static $lucro_total = 0;
     protected $preco = 20.00;
     protected  $ingressos;
     protected  $caixa;
@@ -31,7 +32,8 @@ class Bilheteria
          if($this->caixa >= $this->preco){
             $this->ingressos -= 1;
             $this->caixa -= $this->preco;
-            
+            self::$lucro_total += $this->preco;
+
             echo $this->frase_sucesso();
         } else {
             echo "Falta de grana, POBRE, TA DURO DEITA.";
@@ -46,5 +48,9 @@ class Bilheteria
 
     protected function frase_sucesso() {
         return "Bom filme!  você vai assistir o filme: " . $this->filme->getFilme() . "🍿";
+    }
+
+    public static function getLucroTotal(){
+        return self::$lucro_total;
     }
 }

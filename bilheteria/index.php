@@ -46,5 +46,7 @@ $cinema6 = new Bilheteria($filmeDoDia);
 
 $cinema6->receber_dinheiro(20.00);
 $cinema6->imprimir_bilhete();
-
+echo "<br>";
+echo "<br>";
+echo "Lucro total do cinema: R$ ". Bilheteria::getLucroTotal();
 
