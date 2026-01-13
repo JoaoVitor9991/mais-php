@@ -14,3 +14,14 @@ echo $patio->buscar("RED-1234");
 echo "<br>";
 echo "<br>";
 echo $patio->buscar("RED-12344");
+
+$patio1 = new Patio();
+$civic = new Veiculo("Civic", "AMA-6969");
+
+$patio1->entrar($civic);
+echo "<br>";
+echo "<br>";
+echo $patio1->sair("AMA-6969");
+echo "<br>";
+echo "<br>";
+echo $patio1->sair("AMA-6969");

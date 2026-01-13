@@ -20,4 +20,15 @@ class Patio {
 
         return "CARRO NÃO ESTÁ AQUI VEI, E AGORA?";
     }
+
+    public function sair($placa_procurada)
+    {
+        foreach ($this->carro as $indicie => $carro_atual) {
+            if($carro_atual->getPlaca() == $placa_procurada) {
+                unset($this->carro[$indicie]);
+                return "Carro Saiu do pátio!";
+            }
+        }
+        return "Carro não ta aqui fi, vaza.";
+    }
 }
